@@ -1,0 +1,45 @@
+﻿﻿@model List<MidAssignment.Context.Department>
+@{
+    ViewBag.Title = "Index";
+}
+
+<script>
+    setTimeout(() => {
+        const box = document.getElementById('hide');
+        box.style.display = 'none';
+    }, 5000);
+</script>
+
+<h2>Department Information</h2>
+<hr />
+<a href="@Url.Action("AddDepartment", "Department")"><i class="glyphicon glyphicon-plus"></i>Add New Department</a>
+<br />
+@if (TempData["MsgAdd"] != null)
+{
+    <div id="hide" , class="alert alert-success">
+        <strong>Good Work !! </strong> @TempData["MsgAdd"]
+    </div>
+}
+<hr />
+
+
+<table class="table table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+    </tr>
+
+    @foreach (var items in Model)
+    {
+        <tr>
+
+            <td>@items.DepartmentId</td>
+            <td>@items.DepartmentName</td>
+
+        </tr>
+
+    }
+
+</table>
+
+

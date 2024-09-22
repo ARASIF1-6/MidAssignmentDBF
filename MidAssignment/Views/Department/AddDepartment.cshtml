@@ -1,0 +1,29 @@
+﻿﻿@model MidAssignment.Context.Department
+@{
+    ViewBag.Title = "AddDepartment";
+}
+
+<style>
+    .rederr {
+        color: red;
+        font-size: xx-small;
+    }
+</style>
+
+<h2>Save Department Information</h2>
+<hr />
+
+@using (Html.BeginForm("AddDepartment", "Department", FormMethod.Post))
+{
+    <div class="container">
+        <div class="form-group">
+            @Html.LabelFor(x => x.DepartmentName)
+            @Html.TextBoxFor(x => x.DepartmentName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.DepartmentName, "", new { @class = "rederr" })
+        </div>
+        <div class="form-group">
+            <input id="saveBtn" type="submit" value="save" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
